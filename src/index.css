@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: #E4E3E0;
+  --color-ink: #141414;
+  --color-line: #141414;
+  --color-accent: #2A5CFF;
+  
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  --font-serif: "Georgia", serif;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 16px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.btn-theme {
+  padding: 8px 16px;
+  border: 1px solid var(--color-line);
+  background: #FFF;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--color-line);
+  color: var(--color-ink);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.btn-theme:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--color-line);
+}
+.btn-theme.primary {
+  background: var(--color-ink);
+  color: var(--color-base);
+}
+
+.input-theme {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  padding: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: white;
+  box-sizing: border-box;
+}
+.input-theme:focus {
+  outline: 1px solid var(--color-line);
+}
+
+.field-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.col-header {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  padding: 10px;
+  border-bottom: 1px solid var(--color-line);
+  background: #F0F0EE;
+}
+
+.status-pill {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid var(--color-line);
+}
+
+.data-cell {
+  padding: 12px 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(20,20,20,0.1);
+}
