@@ -3,41 +3,36 @@ import { Package, Truck, AlertTriangle, RefreshCcw, ClipboardList, LayoutDashboa
 import LivreursView from './components/LivreursView.tsx';
 import CommandesView from './components/CommandesView.tsx';
 
-// A simple local client for our API
+// A simple local client for our API// App.tsx - Modifiez l'apiClient
 export const apiClient = {
   get: async (url: string) => {
-    const res = await fetch(url, { headers: { 'Authorization': `Bearer ${import.meta.env.VITE_API_KEY || 'secret-admin-key'}` } });
+    // Utilisez localhost:3001 pour le backend
+    const fullUrl = `http://localhost:3001${url}`;
+    const res = await fetch(fullUrl);
     if (!res.ok) throw new Error(await res.text());
     return res.json();
   },
   post: async (url: string, data: any) => {
-    const res = await fetch(url, {
+    const res = await fetch(`http://localhost:3001${url}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_API_KEY || 'secret-admin-key'}`
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
     if (!res.ok) throw new Error(await res.text());
     return res.json();
   },
   put: async (url: string, data: any) => {
-    const res = await fetch(url, {
+    const res = await fetch(`http://localhost:3001${url}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.VITE_API_KEY || 'secret-admin-key'}`
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
     if (!res.ok) throw new Error(await res.text());
     return res.json();
   },
   delete: async (url: string) => {
-    const res = await fetch(url, {
+    const res = await fetch(`http://localhost:3001${url}`, {
       method: 'DELETE',
-      headers: { 'Authorization': `Bearer ${import.meta.env.VITE_API_KEY || 'secret-admin-key'}` }
     });
     if (!res.ok) throw new Error(await res.text());
     return res.json();
